@@ -8,29 +8,36 @@ import SendVerification from "../../components/Home/sendVerification";
 import Post from "../../components/post";
 import "./Home.css";
 const Home = ({ setVisible, posts }) => {
-  const middle = useRef(null);
-  const { user } = useSelector((state) => ({ ...state }));
-  const [height, setHeight] = useState();
+    const middle = useRef(null);
+    const currentUser = useSelector((state) => state.auth.auth.currentUser);
+    const { user } = useSelector((state) => ({ ...state }));
+    const [height, setHeight] = useState();
 
-  useEffect(() => {
-    setHeight(middle.current.clientHeight);
-  }, []);
+    useEffect(() => {
+        setHeight(middle.current.clientHeight);
+    }, []);
 
-  return (
-    <div className="home" style={{ height: `${height + 150}px` }}>
-      <Header />
-      <HomeLeft user={user} />
-      <div className="home_middle" ref={middle}>
-        {user.verified === false && <SendVerification user={user} />}
-        <CreatePost user={user} setVisible={setVisible} />
-        <div className="posts">
-          {posts.map((post) => {
-            return <Post key={post._id} post={post} user={user} />;
-          })}
+    return (
+        <div className="home" style={{ height: `100vh` }}>
+            <Header />
+            <HomeLeft user={currentUser} />
+            <div className="home_middle" ref={middle}>
+                {user.verified === false && <SendVerification user={user} />}
+                <CreatePost user={currentUser} setVisible={setVisible} />
+                <div className="posts">
+                    {posts.map((post) => {
+                        return (
+                            <Post
+                                key={post._id}
+                                post={post}
+                                user={currentUser}
+                            />
+                        );
+                    })}
+                </div>
+            </div>
+            <RightHome user={user} />
         </div>
-      </div>
-      <RightHome user={user} />
-    </div>
-  );
+    );
 };
 export default Home;
