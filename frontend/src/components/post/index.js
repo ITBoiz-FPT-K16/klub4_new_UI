@@ -8,6 +8,8 @@ import CreateComments from "./CreateComments";
 import PostMenu from "./PostMenu";
 import { clubs } from "../../data/clubs";
 const Post = ({ post, user }) => {
+    console.log("");
+
     console.log("user>>>", user);
     const clubAvatar = clubs.find(
         (club) => club._id === post.clubId

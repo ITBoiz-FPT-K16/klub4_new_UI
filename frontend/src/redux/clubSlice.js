@@ -5,7 +5,7 @@ const clubSlice = createSlice({
     initialState: [],
     reducers: {
         setClub: (state, action) => {
-            state = action.payload;
+            return action.payload;
         },
     },
 });

@@ -1,4 +1,4 @@
-const events = [
+export const events = [
     {
         _id: "64aecf99a050d44ea4219e76",
 

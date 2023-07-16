@@ -15,7 +15,6 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
-import { posts } from "./data/posts";
 
 // function reducer(state, action) {
 //     switch (action.type) {
@@ -39,50 +38,16 @@ function App() {
     const [visible, setVisible] = useState(false);
     const { user } = useSelector((state) => ({ ...state }));
     const dispatch = useDispatch();
-    // const [{ loading, error, posts }, dispatch] = useReducer(reducer, {
-    //     loading: false,
-    //     posts: [],
-    //     error: "",
-    // });
 
-    useEffect(() => {
-        getAllPost();
-    }, []);
-
-    const getAllPost = async () => {
-        try {
-            dispatch({
-                type: "POSTS_REQUEST",
-            });
-            const { data } = await axios.get(
-                `${process.env.REACT_APP_BACKEND_URI}/getAllPost`,
-                {
-                    headers: {
-                        Authorization: `Bearer ${user.token}`,
-                    },
-                }
-            );
-            console.log(data);
-            dispatch({
-                type: "POSTS_SUCCESS",
-                payload: data,
-            });
-        } catch (error) {
-            dispatch({
-                type: "POSTS_ERROR",
-                payload: error.response.data.message,
-            });
-        }
-    };
     return (
-        <div className="App">
+        <div className="App ">
             {visible && <CreatePostPopup setVisible={setVisible} user={user} />}
             <Routes>
                 {/* <Route element={<LoggedInRoutes />}> */}
                 <Route
                     exact
                     path="/"
-                    element={<Home setVisible={setVisible} posts={posts} />}
+                    element={<Home setVisible={setVisible} />}
                 />
                 <Route exact path="/activate/:token" element={<Activate />} />
                 <Route exact path="/profile" element={<Profile />} />

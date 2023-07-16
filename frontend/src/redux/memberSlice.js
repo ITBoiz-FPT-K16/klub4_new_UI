@@ -4,7 +4,7 @@ const memberSlice = createSlice({
     initialState: [],
     reducers: {
         setMember: (state, action) => {
-            state = action.payload;
+            return action.payload;
         },
     },
 });

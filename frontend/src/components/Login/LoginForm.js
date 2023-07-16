@@ -8,9 +8,18 @@ import { useDispatch } from "react-redux";
 import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
-import { users } from "../../data/users";
 import { setAuth } from "../../redux/authSlice";
 import { toast } from "react-toastify";
+import { clubs } from "../../data/clubs";
+import { events } from "../../data/event";
+import { members } from "../../data/member";
+import { posts } from "../../data/posts";
+import { users } from "../../data/users";
+import { setClub } from "../../redux/clubSlice";
+import { setPost } from "../../redux/postSlice";
+import { setMember } from "../../redux/memberSlice";
+import { setEvent } from "../../redux/eventSlice";
+
 const LoginForm = ({ setVisible }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -42,6 +51,11 @@ const LoginForm = ({ setVisible }) => {
 
         if (user) {
             dispatch(setAuth(user));
+            console.log("clubs be for set", clubs);
+            dispatch(setPost(posts));
+
+            dispatch(setEvent(events));
+
             navigate("/");
             toast.success("Login success");
         } else {

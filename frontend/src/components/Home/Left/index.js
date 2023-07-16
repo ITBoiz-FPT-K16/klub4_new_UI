@@ -1,19 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { left } from "../../../data/home";
 import { ArrowDown1 } from "../../../svg";
 import LeftLink from "./LeftLink";
 import Shortcut from "./Shortcut";
+import { useSelector } from "react-redux";
+import { members } from "../../../data/member";
+import { clubs } from "../../../data/clubs";
 import "./style.css";
 const HomeLeft = ({ user }) => {
+    const [clubUserJoined, setClubUserJoined] = useState([]);
+    console.log("members>>", members);
+
+    const getClubUserJoined = () => {
+        const clubIdUserJoined = members.filter(
+            (member) => member.userId === "64aeb4b4a050d44ea4219de0"
+        );
+        console.log("clubIdUserJoined", clubIdUserJoined);
+
+        let clubsUserJoined = [];
+        clubIdUserJoined.forEach((club) => {
+            const clubUserJoined = clubs.find(
+                (club1) => club1._id === club.clubId
+            );
+            clubsUserJoined.push(clubUserJoined);
+        });
+
+        setClubUserJoined(clubsUserJoined);
+    };
+
+    console.log("clubUserJoined", clubUserJoined);
+
+    useEffect(() => {
+        getClubUserJoined();
+    }, []);
+    console.log("clubUserJoined", clubUserJoined);
     const [visible, setVisible] = useState(false);
     return (
         <div className="left_home scrollbar">
-            <Link to={"/profile"} className="left_link hover2">
+            <Link to={"/profile"} className="left_link hover2 ">
                 <img src={user?.avatar} alt="" />
                 <span>{user?.name}</span>
             </Link>
-            {left.slice(0, 8).map((link, i) => {
+            <div className="splitter"></div>
+            <div className="shortcut">
+                <div className="heading">Club you joined</div>
+                <div className="edit_shortcut">Edit</div>
+            </div>
+            {clubUserJoined.length > 0 &&
+                clubUserJoined.map((club, i) => {
+                    return (
+                        <LeftLink
+                            key={i}
+                            img={club?.avatarImage}
+                            text={club?.clubName}
+                        />
+                    );
+                })}
+
+            {/* {left.slice(0, 8).map((link, i) => {
                 return (
                     <LeftLink
                         key={i}
@@ -56,7 +101,7 @@ const HomeLeft = ({ user }) => {
                         <span>Show Less</span>
                     </div>
                 </div>
-            )}
+            )} */}
             <div className="splitter"></div>
             <div className="shortcut">
                 <div className="heading">Your shortcuts</div>

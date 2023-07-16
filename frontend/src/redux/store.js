@@ -24,17 +24,14 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
     auth: authReducer,
+    post: postReducer,
+    event: eventReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 export const store = configureStore({
     reducer: {
-        auth: persistedReducer,
-        user: userReducer,
-        post: postReducer,
-        member: memberReducer,
-        event: eventReducer,
-        club: clubReducer,
+        state: persistedReducer,
     },
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
