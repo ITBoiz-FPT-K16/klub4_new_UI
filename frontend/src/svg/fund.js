@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-
 function Funds({ color }) {
-  return <div>Funds</div>;
+  return (
+    <div>
+      <img src="../../left/pay.png" alt="Funds" />
+    </div>
+  );
 }
 
 export default Funds;

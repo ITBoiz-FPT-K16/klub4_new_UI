@@ -18,7 +18,7 @@ const Home = ({ setVisible, posts }) => {
 
   return (
     <div className="home" style={{ height: `${height + 150}px` }}>
-      <Header />
+      {/* <Header /> */}
       <HomeLeft user={user} />
       <div className="home_middle" ref={middle}>
         {user.verified === false && <SendVerification user={user} />}

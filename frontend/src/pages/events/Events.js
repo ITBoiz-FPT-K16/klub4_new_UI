@@ -5,24 +5,24 @@ import Header from "../../components/Header";
 import HomeLeft from "../../components/Home/Left";
 import RightHome from "../../components/Home/Right";
 import SendVerification from "../../components/Home/sendVerification";
-import Group from "../../components/group";
-import "./Group.css";
+import Event from "../../components/event";
+import "./Event.css";
 
-const GroupPage = ({ setVisible, posts }) => {
+const EventPage = ({ setVisible, posts }) => {
   const middle = useRef(null);
   const { user } = useSelector((state) => ({ ...state }));
   const [height, setHeight] = useState();
-  const groups = [
+  const events = [
     {
       id: 1,
-      name: "First Group",
-      description: "This is a group for Manchester United",
+      name: "First Fund",
+      description: "This is a fund for Manchester United",
       price: 9.9,
     },
     {
       id: 2,
-      name: "Second Group",
-      description: "This is a group for FA Cup",
+      name: "Second Fund",
+      description: "This is a fund for FA Cup",
       price: 10,
     },
   ];
@@ -38,18 +38,14 @@ const GroupPage = ({ setVisible, posts }) => {
         {user.verified === false && <SendVerification user={user} />}
         <CreatePost user={user} setVisible={setVisible} />
         <div className="posts">
-          <div className="mb-5">
-            <h3>This is Group Page</h3>
-          </div>
-          <div>
-            {groups.map((group) => {
-              return <Group key={group.id} group={group} />;
-            })}
-          </div>
+          <h2>This is Event Page</h2>
+          {events.map((event) => {
+            return <Event key={event.id} event={event} />;
+          })}
         </div>
       </div>
       <RightHome user={user} />
     </div>
   );
 };
-export default GroupPage;
+export default EventPage;

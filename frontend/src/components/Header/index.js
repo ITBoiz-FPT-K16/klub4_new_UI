@@ -20,7 +20,7 @@ import AllMenu from "./AllMenu";
 import UserMenu from "./userMenu";
 import useClickOutside from "../../helpers/ClickOutside";
 import Funds from "../../svg/fund";
-import Groups from "../../svg/group";
+import Events from "../../svg/event";
 
 const Header = () => {
   const color = "#65676b";
@@ -63,16 +63,16 @@ const Header = () => {
         <Link to={"/funds"} className="middle_icon hover1">
           <Funds />
         </Link>
-        <Link to={"/group"} className="middle_icon hover1">
-          <Groups />
+        <Link to={"/events"} className="middle_icon hover1">
+          <Events />
           <div className="middle_notifications">9+</div>
         </Link>
-        <Link to={"/"} className="middle_icon hover1">
+        {/* <Link to={"/"} className="middle_icon hover1">
           <Market />
         </Link>
         <Link to={"/"} className="middle_icon hover1">
           <Gaming />
-        </Link>
+        </Link> */}
       </div>
       <div className="header_right">
         <Link to={"/profile"} className="profile_link hover1">

@@ -9,12 +9,12 @@ const HomeLeft = ({ user }) => {
   const [visible, setVisible] = useState(false);
   return (
     <div className="left_home scrollbar">
-      <Link to={"/profile"} className="left_link hover2">
+      {/* <Link to={"/profile"} className="left_link hover2">
         <img src={user?.picture} alt="" />
         <span>
           {user?.first_name} {user?.last_name}
         </span>
-      </Link>
+      </Link> */}
       {left.slice(0, 8).map((link, i) => {
         return (
           <LeftLink
@@ -60,19 +60,21 @@ const HomeLeft = ({ user }) => {
       </div>
       <div className="shortcut_list">
         <Shortcut
-          link="https://www.instagram.com/mr.rj___93/"
-          img="../../images/insta.png"
-          name="My Instagram"
+          link="https://www.facebook.com/profile.php?id=100093035011245"
+          img="../../images/facebook.png"
+          name="O Mai Got facebook"
         />
       </div>
-      <div className={`fb_copyright ${visible && 'relative_fb_copyright'}`}>
+      <div className={`fb_copyright ${visible && "relative_fb_copyright"}`}>
         <Link to={"/"}>Privacy </Link>
         <span>. </span>
         <Link to={"/"}>Terms </Link>
         <span>. </span>
         <Link to={"/"}>Advertising </Link>
         <span>. </span>
-        <Link to={"/"}>Ad choices <i className="ad_choices_icon"></i> </Link>
+        <Link to={"/"}>
+          Ad choices <i className="ad_choices_icon"></i>{" "}
+        </Link>
         <span>. </span>
         <Link to={"/"}>Cookies </Link>
         <span>. </span>

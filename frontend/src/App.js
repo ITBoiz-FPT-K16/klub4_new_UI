@@ -3,6 +3,8 @@ import Home from "./pages/home/Home";
 import Profile from "./pages/profile/Profile";
 import Funds from "./pages/funding/Funds";
 import Groups from "./pages/group/Groups";
+import Events from "./pages/events/Events";
+
 import Login from "./pages/login/Login";
 import LoggedInRoutes from "./routes/LoggedInRoutes";
 import NotLoggedInRoutes from "./routes/NotLoggedInRoutes";
@@ -77,7 +79,8 @@ function App() {
           <Route exact path="/activate/:token" element={<Activate />} />
           <Route exact path="/profile" element={<Profile />} />
           <Route exact path="/funds" element={<Funds />} />
-          <Route exact path="/group" element={<Groups />} />
+          <Route exact path="/groups" element={<Groups />} />
+          <Route exact path="/events" element={<Events />} />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route exact path="/login" element={<Login />} />
