@@ -1,6 +1,15 @@
-const LeftLink = ({ img, text, notification }) => {
+import { useNavigate } from "react-router-dom";
+
+const LeftLink = ({ img, text, idGroup, notification }) => {
+  const navigate = useNavigate();
+
   return (
-    <div className="left_link hover2">
+    <div
+      className="left_link hover2"
+      onClick={() => {
+        navigate(`/groups`);
+      }}
+    >
       <img src={`../../../left/${img}.png`} alt="" />
       {notification !== undefined ? (
         <div className="col">

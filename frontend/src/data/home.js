@@ -2,27 +2,23 @@ export const left = [
   {
     text: "Group 1",
     img: "groups",
+    idGroup: "1",
     // notification: "3 new",
   },
   {
     text: "Group 2",
     img: "groups",
+    idGroup: "2",
   },
   {
     text: "Group 3",
     img: "groups",
+    idGroup: "3",
   },
   {
     text: "Group 4",
     img: "groups",
-  },
-  {
-    text: "Events",
-    img: "events",
-  },
-  {
-    text: "Pay Fund",
-    img: "pay",
+    idGroup: "4",
   },
 ];
 export const stories = [
