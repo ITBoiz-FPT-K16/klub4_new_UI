@@ -7,6 +7,7 @@ import Shortcut from "./Shortcut";
 import { useSelector } from "react-redux";
 import { members } from "../../../data/member";
 import { clubs } from "../../../data/clubs";
+import earthImage from "../../../assets/images/—Pngtree—3d green planet earth day_9026710.png";
 import "./style.css";
 const HomeLeft = ({ user }) => {
     const [clubUserJoined, setClubUserJoined] = useState([]);
@@ -51,6 +52,7 @@ const HomeLeft = ({ user }) => {
                 clubUserJoined.map((club, i) => {
                     return (
                         <LeftLink
+                            clubId={club?._id}
                             key={i}
                             img={club?.avatarImage}
                             text={club?.clubName}
@@ -107,11 +109,20 @@ const HomeLeft = ({ user }) => {
                 <div className="heading">Your shortcuts</div>
                 <div className="edit_shortcut">Edit</div>
             </div>
-            <div className="shortcut_list">
+            <div className="shortcut_list  hover:bg-gray-300 hover:rounded-lg">
                 <Shortcut
-                    link="https://www.instagram.com/mr.rj___93/"
-                    img="../../images/insta.png"
-                    name="My Instagram"
+                    link="/allClubs"
+                    img={earthImage}
+                    name="View all clubs"
+                />
+            </div>
+            <div className="shortcut_list  hover:bg-gray-300 hover:rounded-lg">
+                <Shortcut
+                    link="/"
+                    img={
+                        "https://static.xx.fbcdn.net/rsrc.php/v3/yT/r/3dN1QwOLden.png"
+                    }
+                    name="View all post"
                 />
             </div>
             <div

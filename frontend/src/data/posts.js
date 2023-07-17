@@ -9,7 +9,7 @@ export const posts = [
         image: "",
         time: "12-12-2022 12:12:12",
         permission: "private",
-        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpweS1fNqQEDrknc5ZlUyYLaTtaiGDHkuQTGahKB_S88aelc9y0bPAVa-eb4X-1zAuD_U&usqp=CAU",
+        image: "https://bizweb.dktcdn.net/100/180/757/files/nguyen-tac-thi-dau-vo-thuat-vovinam.jpg?v=1539157591493",
     },
     {
         _id: "64aecd66a050d44ea4219e69",
@@ -20,7 +20,7 @@ export const posts = [
         image: "",
         time: "15-12-2022 12:12:12",
         permission: "public",
-        image: "",
+        image: "https://www.nvhphunu.vn/wp-content/uploads/2023/07/kh%C3%B3a-8.23.jpg",
     },
     {
         _id: "64aecd66a050d44ea4219e6a",
@@ -97,7 +97,7 @@ export const posts = [
         image: "",
         time: "15-12-2022 12:12:12",
         permission: "private",
-        image: "",
+        image: "https://znews-photo.zingcdn.me/w660/Uploaded/neg_esfjaex/2022_10_08/istockphoto_1264166530_612x612.jpg",
     },
     {
         _id: "64aecd66a050d44ea4219e71",
@@ -108,7 +108,7 @@ export const posts = [
         image: "",
         time: "15-12-2022 12:12:12",
         permission: "public",
-        image: "",
+        image: "https://static.toidicode.com/wp-content/uploads/2016/09/toan-tu-logic-nodejs.png",
     },
     {
         _id: "64aecd66a050d44ea4219e72",
@@ -119,7 +119,7 @@ export const posts = [
         image: "",
         time: "15-12-2022 12:12:12",
         permission: "private",
-        image: "",
+        image: "https://img.cenland.vn/images/2021/12/108555868_hoa-tien-paradise-su-kien-1.jpg",
     },
     {
         _id: "64aecd66a050d44ea4219e73",
@@ -129,6 +129,6 @@ export const posts = [
         image: "",
         time: "15-12-2022 12:12:12",
         permission: "public",
-        image: "",
+        image: "https://armypublicschoolalld.org/Uploads/Achievements/AC00020.jpg",
     },
 ];

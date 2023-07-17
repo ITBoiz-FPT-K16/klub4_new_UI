@@ -17,6 +17,8 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import AllClubs from "./pages/allClubs/AllClubs";
+import ClubPosts from "./pages/clubPosts/ClubPosts";
 
 // function reducer(state, action) {
 //     switch (action.type) {
@@ -50,6 +52,13 @@ function App() {
                     exact
                     path="/"
                     element={<Home setVisible={setVisible} />}
+                />
+                <Route exact path="/allClubs" element={<AllClubs />} />
+                <Route path="/club/:clubId" />
+                <Route
+                    exact
+                    path="/club/:clubId/posts"
+                    element={<ClubPosts />}
                 />
                 <Route exact path="/activate/:token" element={<Activate />} />
                 <Route exact path="/profile" element={<Profile />} />

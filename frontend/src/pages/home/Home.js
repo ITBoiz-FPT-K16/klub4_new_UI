@@ -25,7 +25,7 @@ const Home = ({ setVisible, posts }) => {
             <Header />
             <HomeLeft user={currentUser} />
             <div className="home_middle" ref={middle}>
-                <CreatePost user={currentUser} setVisible={setVisible} />
+                {/* <CreatePost user={currentUser} setVisible={setVisible} /> */}
                 <div className="posts">
                     {postsOfAllClubs.map((post) => {
                         return (
