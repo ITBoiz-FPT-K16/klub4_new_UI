@@ -1,4 +1,3 @@
-import { Dots, Public } from "../../svg";
 import { useState } from "react";
 const Funds = ({ fund, user }) => {
   const [visible, setVisible] = useState(false);
@@ -13,8 +12,8 @@ const Funds = ({ fund, user }) => {
           <div className="post_bg" style={{}}>
             <div className="post_bg_text">{fund.name}</div>
           </div>
+          <div className="post_text">{fund.description}</div>
           <div className="post_text">
-            {fund.description}
             <strong> Fund to pay: {fund.price}</strong>
           </div>
         </div>
