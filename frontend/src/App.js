@@ -19,6 +19,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
 import AllClubs from "./pages/allClubs/AllClubs";
 import ClubPosts from "./pages/clubPosts/ClubPosts";
+import AdminPage from "./components/admin/AdminPage";
 
 // function reducer(state, action) {
 //     switch (action.type) {
@@ -53,6 +54,7 @@ function App() {
                     path="/"
                     element={<Home setVisible={setVisible} />}
                 />
+                <Route exact path="/admin" element={<AdminPage />} />
                 <Route exact path="/allClubs" element={<AllClubs />} />
                 <Route path="/club/:clubId" />
                 <Route
