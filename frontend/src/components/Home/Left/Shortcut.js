@@ -1,9 +1,11 @@
+import { Link, NavLink } from "react-router-dom";
+
 const Shortcut = ({ link, img, name }) => {
-  return (
-    <a href={link} target="_blank" rel="noreferrer" className="shortcut_item">
-      <img src={img} alt="" />
-      <span>{name}</span>
-    </a>
-  );
+    return (
+        <NavLink to={link} className="shortcut_item my-1">
+            <img src={img} alt="" />
+            <span>{name}</span>
+        </NavLink>
+    );
 };
 export default Shortcut;

@@ -17,6 +17,9 @@ import axios from "axios";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useDispatch } from "react-redux";
+import AllClubs from "./pages/allClubs/AllClubs";
+import ClubPosts from "./pages/clubPosts/ClubPosts";
+import AdminPage from "./components/admin/AdminPage";
 
 // function reducer(state, action) {
 //     switch (action.type) {

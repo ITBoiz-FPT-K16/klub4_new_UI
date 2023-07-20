@@ -19,10 +19,14 @@ const Post = ({ post, user }) => {
 
     const [visible, setVisible] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+
     return (
         <div className="post mb-5">
             <div className="post_header">
-                <Link to={`/profile/`} className="post_header_left">
+                <Link
+                    // to={`/club/${post.clubId}/profile`}
+                    className="post_header_left"
+                >
                     <img src={clubAvatar} alt="" />
                     <div className="header_col">
                         <div className="post_profile_name">{clubName}</div>

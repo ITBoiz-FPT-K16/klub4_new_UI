@@ -1,6 +1,11 @@
-const LeftLink = ({ img, text, notification }) => {
+import { NavLink } from "react-router-dom";
+
+const LeftLink = ({ clubId, img, text, notification }) => {
     return (
-        <div className="left_link hover:bg-gray-300">
+        <NavLink
+            to={`/club/${clubId}/posts`}
+            className="left_link hover:bg-gray-300"
+        >
             <img src={img} alt="" />
             {notification !== undefined ? (
                 <div className="col">
@@ -10,7 +15,7 @@ const LeftLink = ({ img, text, notification }) => {
             ) : (
                 <span>{text}</span>
             )}
-        </div>
+        </NavLink>
     );
 };
 export default LeftLink;

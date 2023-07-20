@@ -8,7 +8,8 @@ export const users = [
         password: "123456",
         DOB: "24-02-2002",
         avatar: "https://scontent.fdad3-5.fna.fbcdn.net/v/t39.30808-6/312929147_1775376369492751_5050191467061362469_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=09cbfe&_nc_ohc=HpnT2XqP0F8AX9IC2O5&_nc_ht=scontent.fdad3-5.fna&oh=00_AfDXaDEXZ9Lj7F_NBsv2g5FVwPuqHkQSKm5UjXJDGE3ytA&oe=64B81FCC",
-        coverImage: "",
+        coverImage:
+            "https://marketplace.canva.com/EAFB2eB7C3o/1/0/1600w/canva-yellow-and-turquoise-vintage-rainbow-desktop-wallpaper-Y4mYj0d-9S8.jpg",
     },
     {
         _id: "64aeb4b4a050d44ea4219de1",
@@ -19,7 +20,8 @@ export const users = [
         password: "123456",
         DOB: "24-04-2002",
         avatar: "",
-        coverImage: "",
+        coverImage:
+            "https://marketplace.canva.com/EAFB2eB7C3o/1/0/1600w/canva-yellow-and-turquoise-vintage-rainbow-desktop-wallpaper-Y4mYj0d-9S8.jpg",
     },
     {
         _id: "64aeb6f7a050d44ea4219de2",

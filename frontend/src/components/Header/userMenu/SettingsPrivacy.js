@@ -1,61 +1,44 @@
-const SettingsPrivacy = ({setVisible}) => {
-  return (
-    <div className="aboslute_wrap">
-        <div className="absolute_wrap_header">
-            <div className="circle hover1" onClick={() => setVisible(0)}>
-                <i className="arrow_back_icon"></i>
+import React, { useEffect } from "react";
+import { clubs } from "../../../data/clubs";
+import { useSelector } from "react-redux";
+import { Avatar } from "@mui/material";
+
+const SettingsPrivacy = ({ setVisible }) => {
+    const [clubsOfUser, setClubsOfUser] = React.useState({});
+    const user = useSelector((state) => state.state.auth.currentUser);
+    const findClubsOfUser = () => {
+        return clubs.find((club) => club.manager === user._id);
+    };
+
+    useEffect(() => {
+        const club = findClubsOfUser();
+        setClubsOfUser(club);
+    }, [clubsOfUser]);
+    console.log("clubsOfUser", clubsOfUser);
+
+    return (
+        <div className="aboslute_wrap">
+            <div className="absolute_wrap_header">
+                <div className="circle hover1" onClick={() => setVisible(0)}>
+                    <i className="arrow_back_icon"></i>
+                </div>
+                Your club
             </div>
-            Settings & Privacy
+            {clubsOfUser && Object.keys(clubsOfUser).length > 0 && (
+                <div className="menu_item hover3">
+                    <div className="small_circle">
+                        <Avatar src={clubsOfUser?.avatarImage} />
+                    </div>
+                    <span>{clubsOfUser.clubName}</span>
+                </div>
+            )}
+
+            {clubsOfUser && Object.keys(clubsOfUser).length === 0 && (
+                <div className="menu_item hover3">
+                    <span>Create your club</span>
+                </div>
+            )}
         </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="settings_filled_icon"></i>
-            </div>
-            <span>
-                Settings
-            </span>
-        </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="privacy_checkup_icon"></i>
-            </div>
-            <span>
-                Privacy Checkup
-            </span>
-        </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="privacy_shortcuts_icon"></i>
-            </div>
-            <span>
-                Privacy Shortcuts
-            </span>
-        </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="activity_log_icon"></i>
-            </div>
-            <span>
-                Activity log
-            </span>
-        </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="news_icon"></i>
-            </div>
-            <span>
-                News Feed Preferences
-            </span>
-        </div>
-        <div className="menu_item hover3">
-            <div className="small_circle">
-                <i className="language_icon"></i>
-            </div>
-            <span>
-                Language
-            </span>
-        </div>
-    </div>
-  )
-}
-export default SettingsPrivacy
+    );
+};
+export default SettingsPrivacy;
