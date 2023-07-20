@@ -23,10 +23,7 @@ const Post = ({ post, user }) => {
     return (
         <div className="post mb-5">
             <div className="post_header">
-                <Link
-                    // to={`/club/${post.clubId}/profile`}
-                    className="post_header_left"
-                >
+                <Link className="post_header_left">
                     <img src={clubAvatar} alt="" />
                     <div className="header_col">
                         <div className="post_profile_name">{clubName}</div>
@@ -66,37 +63,6 @@ const Post = ({ post, user }) => {
                             }}
                         ></div>
                     )}
-                    {/* {post.images && post.images.length && (
-                        <div
-                            className={
-                                post.images.length === 1
-                                    ? "grid_1"
-                                    : post.images.length === 2
-                                    ? "grid_2"
-                                    : post.images.length === 3
-                                    ? "grid_3"
-                                    : post.images.length === 4
-                                    ? "grid_4"
-                                    : post.images.length >= 5 && "grid_5"
-                            }
-                        >
-                            {post.images.slice(0, 5).map((image, i) => {
-                                return (
-                                    <img
-                                        src={image.url}
-                                        alt=""
-                                        className={`img-${i}`}
-                                        key={i}
-                                    />
-                                );
-                            })}
-                            {post.images.length > 5 && (
-                                <div className="more-pics-shadow">
-                                    +{post.images.length - 5}
-                                </div>
-                            )}
-                        </div>
-                    )} */}
                 </>
             )}
             <div className="post_infos">

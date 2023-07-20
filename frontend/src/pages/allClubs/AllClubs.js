@@ -49,15 +49,15 @@ const AllClubs = () => {
                                     <div
                                         key={index}
                                         className="col-span-1 club-card bg-white rounded-lg gap-5 shadow-lg flex-col justify-center items-center"
-                                        style={{ width: "350px" }}
+                                        style={{ width: "" }}
                                     >
                                         <div
                                             className="club-card__image flex justify-center rounded-t-lg"
                                             style={{
-                                                height: "300px",
-                                                width: "",
+                                                height: "250px",
+
                                                 backgroundImage: `url(${club.avatarImage})`,
-                                                backgroundSize: "cover100%",
+                                                backgroundSize: "cover",
                                                 backgroundPosition: "center",
                                                 backgroundRepeat: "no-repeat",
                                             }}

@@ -40,41 +40,52 @@ import AdminPage from "./components/admin/AdminPage";
 //     }
 // }
 function App() {
-  const [visible, setVisible] = useState(false);
-  const { user } = useSelector((state) => ({ ...state }));
-  const dispatch = useDispatch();
+    const [visible, setVisible] = useState(false);
+    const { user } = useSelector((state) => ({ ...state }));
+    const dispatch = useDispatch();
 
-  return (
-    <div className="App ">
-      {visible && <CreatePostPopup setVisible={setVisible} user={user} />}
-      <Routes>
-        {/* <Route element={<LoggedInRoutes />}> */}
-        <Route exact path="/" element={<Home setVisible={setVisible} />} />
-        <Route exact path="/activate/:token" element={<Activate />} />
-        <Route exact path="/profile" element={<Profile />} />
-        <Route exact path="/funds" element={<Funds />} />
-        <Route exact path="/group" element={<Groups />} />
-        <Route exact path="/events" element={<Events />} />
-        {/* </Route> */}
-        {/* <Route element={<NotLoggedInRoutes />}> */}
-        <Route exact path="/login" element={<Login />} />
-        {/* </Route> */}
-        {/* <Route exact path="/reset" element={<Reset />} /> */}
-      </Routes>
-      <ToastContainer
-        position="top-right"
-        autoClose={2500}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-    </div>
-  );
+    return (
+        <div className="App ">
+            {visible && <CreatePostPopup setVisible={setVisible} user={user} />}
+            <Routes>
+                {/* <Route element={<LoggedInRoutes />}> */}
+                <Route
+                    exact
+                    path="/"
+                    element={<Home setVisible={setVisible} />}
+                />
+                <Route exact path="/activate/:token" element={<Activate />} />
+                <Route exact path="/allClubs" element={<AllClubs />} />
+                <Route
+                    exact
+                    path="/club/:clubId/posts"
+                    element={<ClubPosts />}
+                />
+                <Route exact path="/profile" element={<Profile />} />
+                <Route exact path="/club/:clubId/funds" element={<Funds />} />
+                <Route exact path="/club/:clubId/events" element={<Events />} />
+                <Route exact path="/group" element={<Groups />} />
+                <Route exact path="/events" element={<Events />} />
+                {/* </Route> */}
+                {/* <Route element={<NotLoggedInRoutes />}> */}
+                <Route exact path="/login" element={<Login />} />
+                {/* </Route> */}
+                {/* <Route exact path="/reset" element={<Reset />} /> */}
+            </Routes>
+            <ToastContainer
+                position="top-right"
+                autoClose={2500}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+            />
+        </div>
+    );
 }
 
 export default App;

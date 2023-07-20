@@ -12,6 +12,7 @@ import "./style.css";
 const HomeLeft = ({ user }) => {
     const [clubUserJoined, setClubUserJoined] = useState([]);
     console.log("members>>", members);
+    console.log("user in home left>>>", user);
 
     const getClubUserJoined = () => {
         const clubIdUserJoined = members.filter(
@@ -60,50 +61,6 @@ const HomeLeft = ({ user }) => {
                     );
                 })}
 
-            {/* {left.slice(0, 8).map((link, i) => {
-                return (
-                    <LeftLink
-                        key={i}
-                        img={link.img}
-                        text={link.text}
-                        notification={link.notification}
-                    />
-                );
-            })}
-            {!visible && (
-                <div
-                    className="left_link hover2"
-                    onClick={() => setVisible(true)}
-                >
-                    <div className="small_circle">
-                        <ArrowDown1 />
-                    </div>
-                    <span>See More</span>
-                </div>
-            )}
-            {visible && (
-                <div className="more_left">
-                    {left.slice(8, left.length).map((link, i) => {
-                        return (
-                            <LeftLink
-                                key={i}
-                                img={link.img}
-                                text={link.text}
-                                notification={link.notification}
-                            />
-                        );
-                    })}
-                    <div
-                        className="left_link hover2 "
-                        onClick={() => setVisible(false)}
-                    >
-                        <div className="small_circle rotate360">
-                            <ArrowDown1 />
-                        </div>
-                        <span>Show Less</span>
-                    </div>
-                </div>
-            )} */}
             <div className="splitter"></div>
             <div className="shortcut">
                 <div className="heading">Your shortcuts</div>

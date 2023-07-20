@@ -1,5 +1,5 @@
 import "./style.css";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useParams } from "react-router-dom";
 import {
     ArrowDown,
     Friends,
@@ -21,6 +21,7 @@ import UserMenu from "./userMenu";
 import useClickOutside from "../../helpers/ClickOutside";
 import Funds from "../../svg/fund";
 import Events from "../../svg/event";
+import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 const Header = () => {
     const color = "#65676b";
@@ -33,7 +34,7 @@ const Header = () => {
     const userMenu = useRef(null);
     const path = window.location.pathname;
     console.log("path in header>>>", path);
-
+    const { clubId } = useParams();
     useClickOutside(allMenu, () => {
         setShowAllMenu(false);
     });
@@ -70,50 +71,35 @@ const Header = () => {
                 />
             )}
 
-            {!route.match("/allClubs") && (
-                <div className=" flex">
-                    <NavLink
-                        to={route.match("/posts") ? route : "/blabla"}
-                        active={route.match("/post")}
-                        className="middle_icon hover1 mx-1"
-                    >
-                        <HomeActive />
-                    </NavLink>
-                    <NavLink to={"/funds"} className="middle_icon hover1 mx-1">
-                        <Funds />
-                    </NavLink>
-                    <NavLink to={"/events"} className="middle_icon hover1 mx-1">
-                        <Events />
-                        <div className="middle_notifications">9+</div>
-                    </NavLink>
-                </div>
-            )}
+            {!route.match("/allClubs") &&
+                !route.match("/profile") &&
+                !route.match("/$") && (
+                    <div className=" flex">
+                        <NavLink
+                            to={`/club/${clubId}/posts`}
+                            active={route.match("/post")}
+                            className="middle_icon hover1 mx-1"
+                        >
+                            <HomeActive />
+                        </NavLink>
+                        <NavLink
+                            to={`/club/${clubId}/funds`}
+                            className="middle_icon hover1 mx-1"
+                        >
+                            <Funds />
+                        </NavLink>
+                        <NavLink
+                            to={`/club/${clubId}/events`}
+                            className="middle_icon hover1 mx-1"
+                        >
+                            <Events />
+                            <div className="middle_notifications">9+</div>
+                        </NavLink>
+                    </div>
+                )}
 
             <div className="flex">
-                <Link to={"/profile"} className="profile_link hover1">
-                    <img src={user?.picture} alt="" />
-                    <span>{user?.first_name}</span>
-                </Link>
-                <div
-                    className={`circle_icon hover1  ${
-                        showAllMenu && "active_header"
-                    }`}
-                    ref={allMenu}
-                >
-                    <div onClick={() => setShowAllMenu(!showAllMenu)}>
-                        <div>
-                            <Menu style={{ transform: "translateY(3px)" }} />
-                        </div>
-                    </div>
-                    {showAllMenu && <AllMenu />}
-                </div>
-                <div className="circle_icon hover1">
-                    <Messenger />
-                </div>
-                <div className="circle_icon hover1">
-                    <Notifications />
-                    <div className="right_notifications">5</div>
-                </div>
+                <div className="px-28"></div>
                 <div
                     className={`circle_icon hover1  ${
                         showUserMenu && "active_header"
@@ -121,7 +107,7 @@ const Header = () => {
                     ref={userMenu}
                 >
                     <div onClick={() => setShowUserMenu((prev) => !prev)}>
-                        <ArrowDown />
+                        <MoreVertIcon />
                     </div>
                     {showUserMenu && <UserMenu user={user} />}
                 </div>

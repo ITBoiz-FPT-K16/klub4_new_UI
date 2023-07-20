@@ -19,6 +19,7 @@ import { setClub } from "../../redux/clubSlice";
 import { setPost } from "../../redux/postSlice";
 import { setMember } from "../../redux/memberSlice";
 import { setEvent } from "../../redux/eventSlice";
+import logo from "../../assets/images/logo.png";
 
 const LoginForm = ({ setVisible }) => {
     const dispatch = useDispatch();
@@ -64,14 +65,7 @@ const LoginForm = ({ setVisible }) => {
         }
     };
     return (
-        <div className="login_wrap">
-            <div className="login_1">
-                <img src="../../icons/facebook.svg" alt="" />
-                <span>
-                    Facebook helps you connect and share with the people in your
-                    life
-                </span>
-            </div>
+        <div className="login_wrap flex justify-center">
             <div className="login_2">
                 <div className="login_2_wrap">
                     <Formik

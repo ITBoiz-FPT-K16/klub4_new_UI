@@ -5,20 +5,20 @@ import { useSelector } from "react-redux";
 import ProfileLeft from "../../components/profile/left";
 
 const ProfilePage = () => {
-  const middle = useRef(null);
-  const { user } = useSelector((state) => ({ ...state }));
-  const [height, setHeight] = useState();
+    const middle = useRef(null);
+    const user = useSelector((state) => state.state.auth.currentUser);
+    const [height, setHeight] = useState();
 
-  return (
-    <div className="home" style={{ height: `${height + 150}px` }}>
-      <Header />
-      <ProfileLeft user={user} />
-      <div className="home_middle" ref={middle}>
-        <div className="posts">
-          <Profile />
+    return (
+        <div className="home" style={{ height: `${height + 150}px` }}>
+            <Header />
+            <ProfileLeft user={user} />
+            <div className="home_middle" ref={middle}>
+                <div className="posts">
+                    <Profile />
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  );
+    );
 };
 export default ProfilePage;
